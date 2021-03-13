@@ -5,7 +5,7 @@ export const Config = t.exact(t.type({
   thumbnailHeight: t.number,
   thumbnailWidth: t.number,
 }));
-export type Config = typeof Config._A;
+export type Config = Readonly<typeof Config._A>;
 
 export const defaultConfig: Config = {
   port: 3000,
