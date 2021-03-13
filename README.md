@@ -8,7 +8,7 @@ Requirements:
 
 Basic features:
 
- - [ ] Apply given JSON patch ([RFC 6902](https://tools.ietf.org/html/rfc6902)) to the given JSON document
+ - [x] Apply given JSON patch ([RFC 6902](https://tools.ietf.org/html/rfc6902)) to the given JSON document
  - [ ] Generate a thumbnail for the given image
 
 Extra features:
