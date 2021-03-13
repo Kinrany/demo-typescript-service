@@ -19,7 +19,7 @@ if (fs.existsSync(configPath)) {
 console.log('Configuration:');
 console.log(config);
 
-const app = App();
+const app = App(config);
 
 app.listen(config.port).catch((error: unknown) => {
   console.error(error);
