@@ -2,7 +2,7 @@
 	"private": true,
 	"scripts": {
 		"start": "ts-node src/main.ts",
-		"test": "tap src/tests.ts"
+		"test": "tap src/tests/*.ts"
 	},
 	"dependencies": {
 		"fastify": "^3.14.0",
