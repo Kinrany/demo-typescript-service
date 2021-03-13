@@ -1,8 +1,10 @@
 import Fastify from 'fastify';
+import multipart from 'fastify-multipart';
 import { isLeft } from 'fp-ts/lib/Either';
 import * as t from 'io-ts';
 import { Json } from 'io-ts-types'
 import { apply_patch, InvalidPatch, PatchApplyError } from 'jsonpatch';
+import sharp from 'sharp';
 
 declare module 'jsonpatch' {
   export class InvalidPatch extends Error {}
@@ -11,6 +13,8 @@ declare module 'jsonpatch' {
 
 export const App = () => {
   const app = Fastify();
+
+  app.register(multipart);
 
   app.get("/health", async () => 'OK\n');
 
@@ -55,6 +59,20 @@ export const App = () => {
         });
       }
     }
+  });
+
+  const WIDTH = 200;
+  const HEIGHT = 200;
+
+  app.post("/generate-thumbnail", async (request, reply) => {
+    const file = await request.file();
+    const fileStream = file.file;
+
+    const resizer = sharp()
+      .resize(WIDTH, HEIGHT, { fit: 'outside' })
+      .toFormat('jpeg');
+
+    return reply.send(fileStream.pipe(resizer));
   });
 
   return app;
