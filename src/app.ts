@@ -1,3 +1,5 @@
+import * as stream from 'stream';
+import { promisify } from 'util';
 import Fastify from 'fastify';
 import multipart from 'fastify-multipart';
 import { isLeft } from 'fp-ts/lib/Either';
@@ -5,6 +7,8 @@ import * as t from 'io-ts';
 import { Json } from 'io-ts-types'
 import { apply_patch, InvalidPatch, PatchApplyError } from 'jsonpatch';
 import sharp from 'sharp';
+
+const pipeline = promisify(stream.pipeline);
 
 declare module 'jsonpatch' {
   export class InvalidPatch extends Error {}
@@ -72,7 +76,7 @@ export const App = () => {
       .resize(WIDTH, HEIGHT, { fit: 'outside' })
       .toFormat('jpeg');
 
-    return reply.send(fileStream.pipe(resizer));
+    await pipeline(fileStream.pipe(resizer), reply.raw);
   });
 
   return app;
