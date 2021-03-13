@@ -25,5 +25,5 @@ test('/generate-thumbnail', async t => {
 
   const expectedFile = await readFile(path.resolve(__dirname, 'expected-image.jpeg'));
 
-  t.same(response.rawPayload, expectedFile);
+  t.same(response.rawPayload, expectedFile, 'returns thumbnail file');
 });

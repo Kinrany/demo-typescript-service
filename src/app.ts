@@ -7,6 +7,7 @@ import * as t from 'io-ts';
 import { Json } from 'io-ts-types'
 import { apply_patch, InvalidPatch, PatchApplyError } from 'jsonpatch';
 import sharp from 'sharp';
+import { Config, defaultConfig } from './config';
 
 const pipeline = promisify(stream.pipeline);
 
@@ -15,7 +16,7 @@ declare module 'jsonpatch' {
   export class PatchApplyError extends Error {}
 }
 
-export const App = () => {
+export const App = (config: Config = defaultConfig) => {
   const app = Fastify();
 
   app.register(multipart);
@@ -65,14 +66,11 @@ export const App = () => {
     }
   });
 
-  const WIDTH = 200;
-  const HEIGHT = 200;
-
   app.post("/generate-thumbnail", async (request, reply) => {
     const file = await request.file();
     const fileStream = file.file;
 
-    const resizer = sharp().resize(WIDTH, HEIGHT).toFormat('jpeg');
+    const resizer = sharp().resize(config.thumbnailWidth, config.thumbnailHeight).toFormat('jpeg');
 
     await pipeline(fileStream.pipe(resizer), reply.raw);
   });
