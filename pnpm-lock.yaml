@@ -16,6 +16,7 @@ devDependencies:
   '@types/node': 14.14.34
   '@types/sharp': 0.27.1
   '@types/tap': 14.10.3
+  form-data: 4.0.0
   tap: 14.11.0
 lockfileVersion: 5.2
 packages:
@@ -855,6 +856,16 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
+  /form-data/4.0.0:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.29
+    dev: true
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
   /fp-ts/2.9.5:
     dev: false
     resolution:
@@ -2608,6 +2619,7 @@ specifiers:
   '@types/tap': ^14.10.3
   fastify: ^3.14.0
   fastify-multipart: ^4.0.2
+  form-data: ^4.0.0
   fp-ts: ^2.9.5
   io-ts: ^2.2.16
   io-ts-types: ^0.5.15

@@ -72,9 +72,7 @@ export const App = () => {
     const file = await request.file();
     const fileStream = file.file;
 
-    const resizer = sharp()
-      .resize(WIDTH, HEIGHT, { fit: 'outside' })
-      .toFormat('jpeg');
+    const resizer = sharp().resize(WIDTH, HEIGHT).toFormat('jpeg');
 
     await pipeline(fileStream.pipe(resizer), reply.raw);
   });
