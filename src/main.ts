@@ -11,7 +11,7 @@ if (fs.existsSync(configPath)) {
   const json = fs.readFileSync(configPath).toString();
   const result = Config.decode(JSON.parse(json));
   if (isLeft(result)) {
-    console.error('Invalid config.')
+    console.error('Invalid configuration file format.')
     process.exit(1);
   }
   config = result.right;
