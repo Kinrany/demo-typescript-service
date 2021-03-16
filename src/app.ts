@@ -31,7 +31,7 @@ export const App = (config: Config = defaultConfig) => {
     // otherwise `app.basicAuth` will stay undefined
     app.register(basicAuth, {
       authenticate: { realm: config.basicAuth.realm },
-      validate: (username, password) => {
+      validate: async (username, password) => {
         if (config.basicAuth!.users[username] !== password) {
           throw new Error('Unauthorized');
         }
