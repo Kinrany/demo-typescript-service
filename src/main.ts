@@ -16,10 +16,10 @@ if (fs.existsSync(configPath)) {
   }
   config = result.right;
 }
-console.log('Configuration:');
-console.log(config);
 
 const app = App(config);
+app.log.info('Configuration:');
+app.log.info(config);
 
 app.listen(config.port).catch((error: unknown) => {
   console.error(error);

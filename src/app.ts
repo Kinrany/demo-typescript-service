@@ -18,7 +18,12 @@ declare module 'jsonpatch' {
 }
 
 export const App = (config: Config = defaultConfig) => {
-  const app = Fastify();
+  const app = Fastify({
+    logger: {
+      prettyPrint: true,
+      level: config.logLevel,
+    }
+  });
 
   app.register(multipart);
 
