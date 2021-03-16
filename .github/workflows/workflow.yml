@@ -1,0 +1,30 @@
+name: CI
+on: push
+jobs:
+  check:
+    name: Check for TypeScript errors
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - run: npm i -g pnpm
+    - run: pnpm --frozen-lockfile install
+    - run: pnpm check
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - run: npm i -g pnpm
+    - run: pnpm --frozen-lockfile install
+    - run: pnpm test
+  build:
+    name: Build container image
+    runs-on: ubuntu-latest
+    steps:
+    - uses: docker/build-push-action@v2
