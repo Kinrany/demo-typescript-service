@@ -28,12 +28,14 @@ jobs:
     runs-on: ubuntu-latest
     environment: DigitalOcean
     steps:
-    - uses: digitalocean/action-doctl@v2
+    - uses: docker/login-action@v1
       with:
-        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        registry: ${{ secrets.CONTAINER_REGISTRY_URL }}
+        username: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        password: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
     - uses: docker/build-push-action@v2
       with:
         tags: |
-          registry.digitalocean.com/${{ secrets.DIGITALOCEAN_CONTAINER_REGISTRY }}/image:demo-typescript-service-${{ github.sha }}
-          registry.digitalocean.com/${{ secrets.DIGITALOCEAN_CONTAINER_REGISTRY }}/image:demo-typescript-service-latest
+          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service-${{ github.sha }}
+          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service-latest
         push: true
