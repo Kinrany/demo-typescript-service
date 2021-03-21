@@ -1,5 +1,8 @@
-name: CI
+name: "CI: worker"
 on: [push, workflow_dispatch]
+defaults:
+  run:
+    working-directory: worker
 jobs:
   check:
     name: Check for TypeScript errors
@@ -28,6 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: DigitalOcean
     steps:
+    - uses: actions/checkout@v2
     - uses: docker/login-action@v1
       with:
         registry: ${{ secrets.CONTAINER_REGISTRY_URL }}
@@ -35,7 +39,8 @@ jobs:
         password: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
     - uses: docker/build-push-action@v2
       with:
+        context: worker/
         tags: |
-          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service-${{ github.sha }}
-          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service-latest
+          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_worker_${{ github.sha }}
+          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_worker_latest
         push: true
