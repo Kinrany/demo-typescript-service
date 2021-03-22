@@ -21,6 +21,7 @@ export const Config = t.exact(t.type({
     t.literal('error'),
     t.literal('fatal'),
   ]),
+  workerHost: t.string,
 }));
 export type Config = Readonly<typeof Config._A>;
 
@@ -28,4 +29,5 @@ export const defaultConfig: Config = {
   port: 3001,
   basicAuth: undefined,
   logLevel: 'info',
+  workerHost: '0.0.0.0:3000',
 } as const;
