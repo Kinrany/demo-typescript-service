@@ -70,16 +70,19 @@ export const App = (config: Config = defaultConfig) => {
       return document;
     });
 
-    app.post("/document", async request => {
-      const document = await prisma.document.create({
-        data: {
-          // Fastify parses request body as JSON by default.
-          document: request.body as Prisma.InputJsonValue,
-        },
-        select: { uuid: true, document: true, created_at: true },
-      });
+    app.post("/document", {
+      onRequest: app.basicAuth,
+      handler: async request => {
+        const document = await prisma.document.create({
+          data: {
+            // Fastify parses request body as JSON by default.
+            document: request.body as Prisma.InputJsonValue,
+          },
+          select: { uuid: true, document: true, created_at: true },
+        });
 
-      return document;
+        return document;
+      }
     });
   });
 
