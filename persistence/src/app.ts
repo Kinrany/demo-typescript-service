@@ -2,7 +2,7 @@ import Fastify from 'fastify';
 import multipart from 'fastify-multipart';
 import basicAuth from 'fastify-basic-auth';
 import { Config, defaultConfig } from './config';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Prisma } from '@prisma/client';
 import * as t from 'io-ts';
 import { isLeft } from 'fp-ts/lib/Either';
 
@@ -42,7 +42,7 @@ export const App = (config: Config = defaultConfig) => {
       params: t.type({
         documentId: t.string,
       }),
-    });
+    }, 'GetDocumentRequest');
 
     app.get("/document/:documentId", async (request, reply) => {
       const validation = GetDocumentRequest.decode(request);
@@ -67,8 +67,20 @@ export const App = (config: Config = defaultConfig) => {
         });
       }
 
-      return reply.status(200).send(document);
-    })
+      return document;
+    });
+
+    app.post("/document", async request => {
+      const document = await prisma.document.create({
+        data: {
+          // Fastify parses request body as JSON by default.
+          document: request.body as Prisma.InputJsonValue,
+        },
+        select: { uuid: true, document: true, created_at: true },
+      });
+
+      return document;
+    });
   });
 
   return app;
