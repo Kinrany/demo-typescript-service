@@ -43,4 +43,4 @@ jobs:
         tags: |
           ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_persistence_${{ github.sha }}
           ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_persistence_latest
-        push: true
+        push: false
