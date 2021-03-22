@@ -1,5 +1,11 @@
 import * as t from 'io-ts';
 
+/**
+ * Note that this config does not include database url.
+ *
+ * Instead it should be passed as environment variable
+ * DATABASE_URL directly or using a `.env` file.
+ */
 export const Config = t.exact(t.type({
   port: t.number,
   basicAuth: t.union([t.undefined, t.type({

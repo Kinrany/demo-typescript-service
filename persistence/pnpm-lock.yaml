@@ -1,4 +1,5 @@
 dependencies:
+  '@prisma/client': 2.19.0_prisma@2.19.0
   fastify: 3.14.0
   fastify-basic-auth: 1.0.1
   fastify-multipart: 4.0.2
@@ -16,6 +17,7 @@ devDependencies:
   '@types/node': 14.14.34
   '@types/tap': 14.10.3
   form-data: 4.0.0
+  prisma: 2.19.0
   tap: 14.11.0
 lockfileVersion: 5.2
 packages:
@@ -119,6 +121,30 @@ packages:
     dev: false
     resolution:
       integrity: sha512-WEezM1FWztfbzqIUbsDzFRVMxSoLy3HugVcux6KDDtTqzPsLE8NDRHfXvev66aH1i2oOKKar3/XDjbvh/OUBdg==
+  /@prisma/client/2.19.0_prisma@2.19.0:
+    dependencies:
+      '@prisma/engines-version': 2.19.0-39.c1455d0b443d66b0d9db9bcb1bb9ee0d5bbc511d
+      prisma: 2.19.0
+    dev: false
+    engines:
+      node: '>=10.4'
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-QK4M8TjJh1QesyO9aLM7DeAQUi5+UnNHpEAm5kwqBO1cq/4Ag5yU9ladctJFJleEE5BLewXHwV2t9A+VfCZslg==
+  /@prisma/engines-version/2.19.0-39.c1455d0b443d66b0d9db9bcb1bb9ee0d5bbc511d:
+    dev: false
+    resolution:
+      integrity: sha512-NzhbwC4iMbRQwJxdhNQX6eaVcOuNGtHRk6aesWE4KMf/YmlW5kfi3HDy7WZ/C4P0Iyn9oURDuk+xZV6QDUVjTw==
+  /@prisma/engines/2.19.0-39.c1455d0b443d66b0d9db9bcb1bb9ee0d5bbc511d:
+    dev: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-rEWpaG7wZvPuWJC5SwkBB/Iwue//oC5yv58Mse7r+ibtgkA7vGdWc1bFDQ32DT9tDL5WSC6bBwqEASGV/1Gm1Q==
   /@types/busboy/0.2.3:
     dependencies:
       '@types/node': 14.14.34
@@ -1653,6 +1679,16 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-/E57AYkoeQ25qkxMj5PBOVgF8Kiu/h7cYS30Z5+R7WaiCCBfLq58ZI/dSeaEKb9WVJV5n/03QwrN3IeWIFllvw==
+  /prisma/2.19.0:
+    dependencies:
+      '@prisma/engines': 2.19.0-39.c1455d0b443d66b0d9db9bcb1bb9ee0d5bbc511d
+    dev: true
+    engines:
+      node: '>=10.4'
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-iartCNVrtR4XT20ABN3zrSi3R/pCBe75Y0ZH8681QIGm8qjRQzf3DnbscPZgZ9iY4KFuVxL8ZrBQVDmRhpN0EQ==
   /prop-types/15.7.2:
     dependencies:
       loose-envify: 1.4.0
@@ -2468,6 +2504,7 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
+  '@prisma/client': ^2.19.0
   '@types/busboy': ^0.2.3
   '@types/node': ^14.14.34
   '@types/tap': ^14.10.3
@@ -2481,6 +2518,7 @@ specifiers:
   monocle-ts: ^2.3.9
   newtype-ts: ^0.3.4
   pino-pretty: ^4.7.1
+  prisma: ^2.19.0
   tap: ^14.11.0
   ts-node: ^9.1.1
   tslib: ^2.1.0
