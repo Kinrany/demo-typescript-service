@@ -1,8 +1,8 @@
-name: "CI: worker"
+name: "CI: persistence"
 on: [push, workflow_dispatch]
 defaults:
   run:
-    working-directory: worker
+    working-directory: persistence
 jobs:
   check:
     name: Check for TypeScript errors
@@ -39,8 +39,8 @@ jobs:
         password: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
     - uses: docker/build-push-action@v2
       with:
-        context: worker/
+        context: persistence/
         tags: |
-          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_worker_${{ github.sha }}
-          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_worker_latest
+          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_persistence_${{ github.sha }}
+          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_persistence_latest
         push: false

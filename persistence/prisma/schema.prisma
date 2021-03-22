@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model document {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  uuid       String   @unique @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  document   Json
+  version    Int      @default(0)
+}
