@@ -1,0 +1,17 @@
+name: 'Build image'
+inputs:
+  registry:
+    description: 'URL of the container registry.'
+    required: true
+  token:
+    description: 'DigitalOcean access token used to log into container registry.'
+    required: true
+  service-name:
+    description: 'Name of the service. Used as Docker context and tag.'
+    required: true
+  push:
+    description: 'True if the image should be pushed to the container registry.'
+    default: false
+runs:
+  using: 'node12'
+  main: 'index.js'

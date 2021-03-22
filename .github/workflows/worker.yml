@@ -32,15 +32,9 @@ jobs:
     environment: DigitalOcean
     steps:
     - uses: actions/checkout@v2
-    - uses: docker/login-action@v1
+    - uses: ./.github/actions/build-image
       with:
-        registry: ${{ secrets.CONTAINER_REGISTRY_URL }}
-        username: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-        password: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-    - uses: docker/build-push-action@v2
-      with:
-        context: worker/
-        tags: |
-          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_worker_${{ github.sha }}
-          ${{ secrets.CONTAINER_REGISTRY_URL }}/image:demo-typescript-service_worker_latest
+        service-name: worker
         push: false
+        registry: ${{ secrets.CONTAINER_REGISTRY_URL }}
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
