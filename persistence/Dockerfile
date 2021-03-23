@@ -2,10 +2,10 @@ FROM node:14-alpine
 WORKDIR /app
 
 RUN npm i -g pnpm
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml tsconfig.json ./
 RUN pnpm --prod --frozen-lockfile install
 
-COPY src tsconfig.json ./
+COPY src src/
 
 VOLUME /config/config.json
 

@@ -35,6 +35,6 @@ jobs:
     - uses: ./.github/actions/build-image
       with:
         service-name: persistence
-        push: false
+        push: true
         registry: ${{ secrets.CONTAINER_REGISTRY_URL }}
         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
