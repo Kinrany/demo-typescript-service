@@ -34,7 +34,7 @@ async function main() {
     return;
   }
 
-  if (!push) {
+  if (push !== 'true') {
     return;
   }
 
