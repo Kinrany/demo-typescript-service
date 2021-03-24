@@ -5,6 +5,7 @@ RUN npm i -g pnpm
 COPY package.json pnpm-lock.yaml tsconfig.json ./
 RUN pnpm --prod --frozen-lockfile install
 
+COPY prisma prisma/
 COPY src src/
 
 VOLUME /config/config.json
