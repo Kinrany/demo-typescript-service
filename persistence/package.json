@@ -16,6 +16,7 @@
 		"monocle-ts": "^2.3.9",
 		"newtype-ts": "^0.3.4",
 		"pino-pretty": "^4.7.1",
+		"prisma": "^2.19.0",
 		"ts-node": "^9.1.1",
 		"tslib": "^2.1.0",
 		"typescript": "^4.2.3"
@@ -25,7 +26,6 @@
 		"@types/node": "^14.14.34",
 		"@types/tap": "^14.10.3",
 		"form-data": "^4.0.0",
-		"prisma": "^2.19.0",
 		"tap": "^14.11.0"
 	}
 }

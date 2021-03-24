@@ -9,6 +9,7 @@ dependencies:
   monocle-ts: 2.3.9_fp-ts@2.9.5
   newtype-ts: 0.3.4_fp-ts@2.9.5+monocle-ts@2.3.9
   pino-pretty: 4.7.1
+  prisma: 2.19.0
   ts-node: 9.1.1_typescript@4.2.3
   tslib: 2.1.0
   typescript: 4.2.3
@@ -17,7 +18,6 @@ devDependencies:
   '@types/node': 14.14.34
   '@types/tap': 14.10.3
   form-data: 4.0.0
-  prisma: 2.19.0
   tap: 14.11.0
 lockfileVersion: 5.2
 packages:
@@ -141,7 +141,6 @@ packages:
     resolution:
       integrity: sha512-NzhbwC4iMbRQwJxdhNQX6eaVcOuNGtHRk6aesWE4KMf/YmlW5kfi3HDy7WZ/C4P0Iyn9oURDuk+xZV6QDUVjTw==
   /@prisma/engines/2.19.0-39.c1455d0b443d66b0d9db9bcb1bb9ee0d5bbc511d:
-    dev: true
     requiresBuild: true
     resolution:
       integrity: sha512-rEWpaG7wZvPuWJC5SwkBB/Iwue//oC5yv58Mse7r+ibtgkA7vGdWc1bFDQ32DT9tDL5WSC6bBwqEASGV/1Gm1Q==
@@ -1682,7 +1681,7 @@ packages:
   /prisma/2.19.0:
     dependencies:
       '@prisma/engines': 2.19.0-39.c1455d0b443d66b0d9db9bcb1bb9ee0d5bbc511d
-    dev: true
+    dev: false
     engines:
       node: '>=10.4'
     hasBin: true
