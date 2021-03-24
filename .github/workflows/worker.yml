@@ -1,5 +1,9 @@
 name: "CI: worker"
-on: [push, workflow_dispatch]
+on:
+  push:
+    paths:
+      - worker
+      - .github/workflows/worker
 defaults:
   run:
     working-directory: worker
