@@ -2,8 +2,10 @@ name: "CI: worker"
 on:
   push:
     paths:
-      - worker
-      - .github/workflows/worker
+      - worker/**/*
+      - .github/workflows/worker.yml
+      - .github/actions/**/*
+  workflow_dispatch:
 defaults:
   run:
     working-directory: worker
@@ -32,6 +34,7 @@ jobs:
     - run: pnpm test
   build:
     name: Build container image
+    needs: [check, test]
     runs-on: ubuntu-latest
     environment: DigitalOcean
     steps:

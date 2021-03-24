@@ -2,8 +2,9 @@ name: "CI: persistence"
 on:
   push:
     paths:
-      - persistence
-      - .github/workflows/persistence
+      - persistence/**/*
+      - .github/workflows/persistence.yml
+      - .github/actions/**/*
   workflow_dispatch:
 defaults:
   run:
@@ -33,6 +34,7 @@ jobs:
     - run: pnpm test
   build:
     name: Build container image
+    needs: [check, test]
     runs-on: ubuntu-latest
     environment: DigitalOcean
     steps:
