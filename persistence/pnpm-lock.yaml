@@ -1,5 +1,6 @@
 dependencies:
   '@prisma/client': 2.19.0_prisma@2.19.0
+  esbuild: 0.9.7
   fastify: 3.14.0
   fastify-basic-auth: 1.0.1
   fastify-multipart: 4.0.2
@@ -10,7 +11,6 @@ dependencies:
   newtype-ts: 0.3.4_fp-ts@2.9.5+monocle-ts@2.3.9
   pino-pretty: 4.7.1
   prisma: 2.19.0
-  ts-node: 9.1.1_typescript@4.2.3
   tslib: 2.1.0
   typescript: 4.2.3
 devDependencies:
@@ -19,6 +19,7 @@ devDependencies:
   '@types/tap': 14.10.3
   form-data: 4.0.0
   tap: 14.11.0
+  ts-node: 9.1.1_typescript@4.2.3
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.12.13:
@@ -141,6 +142,7 @@ packages:
     resolution:
       integrity: sha512-NzhbwC4iMbRQwJxdhNQX6eaVcOuNGtHRk6aesWE4KMf/YmlW5kfi3HDy7WZ/C4P0Iyn9oURDuk+xZV6QDUVjTw==
   /@prisma/engines/2.19.0-39.c1455d0b443d66b0d9db9bcb1bb9ee0d5bbc511d:
+    dev: false
     requiresBuild: true
     resolution:
       integrity: sha512-rEWpaG7wZvPuWJC5SwkBB/Iwue//oC5yv58Mse7r+ibtgkA7vGdWc1bFDQ32DT9tDL5WSC6bBwqEASGV/1Gm1Q==
@@ -226,6 +228,7 @@ packages:
     resolution:
       integrity: sha1-+cjBN1fMHde8N5rHeyxipcKGjEA=
   /arg/4.1.3:
+    dev: true
     resolution:
       integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==
   /argparse/1.0.10:
@@ -340,6 +343,7 @@ packages:
     resolution:
       integrity: sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==
   /buffer-from/1.1.1:
+    dev: true
     resolution:
       integrity: sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
   /busboy/0.3.1:
@@ -516,7 +520,7 @@ packages:
     resolution:
       integrity: sha512-fmvV4caBnofhPe8kOcitBwSn2f39QLjnAnGq3gO9dfd75mUytzKNZB1hde6QHunW2Rt+OwuBOMc3i1tNElbszA==
   /create-require/1.1.1:
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
   /cross-spawn/4.0.2:
@@ -607,6 +611,7 @@ packages:
     resolution:
       integrity: sha512-6/v2PC/6UTGcWPPetb9acL8foberUg/CtPdALeJUdD1B/weHNvzftoo00gYznqHGRhHEbykUGzqfG9RWOSr5yw==
   /diff/4.0.2:
+    dev: true
     engines:
       node: '>=0.3.1'
     resolution:
@@ -638,6 +643,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Um/+FxMr9CISWh0bi5Zv0iOD+4cFh5qLeks1qhAopKVAJw3drgKbKySikp7wGhDL0HPeaja0P5ULZrxLkniUVg==
+  /esbuild/0.9.7:
+    dev: false
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-VtUf6aQ89VTmMLKrWHYG50uByMF4JQlVysb8dmg6cOgW8JnFCipmz7p+HNBl+RR3LLCuBxFGVauAe2wfnF9bLg==
   /escape-string-regexp/1.0.5:
     engines:
       node: '>=0.8.0'
@@ -1357,6 +1368,7 @@ packages:
     resolution:
       integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==
   /make-error/1.3.6:
+    dev: true
     resolution:
       integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==
   /merge-source-map/1.1.0:
@@ -1948,6 +1960,7 @@ packages:
     dependencies:
       buffer-from: 1.1.1
       source-map: 0.6.1
+    dev: true
     resolution:
       integrity: sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
   /source-map/0.5.7:
@@ -1957,6 +1970,7 @@ packages:
     resolution:
       integrity: sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
   /source-map/0.6.1:
+    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -2311,7 +2325,7 @@ packages:
       source-map-support: 0.5.19
       typescript: 4.2.3
       yn: 3.1.1
-    dev: false
+    dev: true
     engines:
       node: '>=10.0.0'
     hasBin: true
@@ -2498,6 +2512,7 @@ packages:
     resolution:
       integrity: sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==
   /yn/3.1.1:
+    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -2507,6 +2522,7 @@ specifiers:
   '@types/busboy': ^0.2.3
   '@types/node': ^14.14.34
   '@types/tap': ^14.10.3
+  esbuild: ^0.9.7
   fastify: ^3.14.0
   fastify-basic-auth: ^1.0.1
   fastify-multipart: ^4.0.2

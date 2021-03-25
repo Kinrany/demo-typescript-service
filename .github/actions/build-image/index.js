@@ -7,7 +7,7 @@
 
 const childProcess = require('child_process');
 
-childProcess.execSync('npm install @actions/core @actions/github @actions/exec');
+childProcess.execSync('npm install @actions/core @actions/http-client@1.0.9 @actions/github @actions/exec');
 
 async function main() {
   const core = require('@actions/core');
