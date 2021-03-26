@@ -8,4 +8,4 @@ COPY src src/
 
 VOLUME /config/config.json
 
-ENTRYPOINT ["pnpm", "start"]
+ENTRYPOINT ["npm", "start"]
