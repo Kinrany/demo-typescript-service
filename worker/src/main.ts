@@ -21,7 +21,7 @@ const app = App(config);
 app.log.info('Configuration:');
 app.log.info(config);
 
-app.listen(config.port).catch((error: unknown) => {
+app.listen(config.port, '0.0.0.0').catch((error: unknown) => {
   console.error(error);
   process.exit(1);
 });
